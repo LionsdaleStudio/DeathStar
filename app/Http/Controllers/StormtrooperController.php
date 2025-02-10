@@ -30,7 +30,15 @@ class StormtrooperController extends Controller
      */
     public function store(StoreStormtrooperRequest $request)
     {
-        Stormtrooper::create($request->all());
+/*         dd($request);
+ */        Stormtrooper::create($request->all());
+
+       /*  $trooper = new Stormtrooper([
+            "name" => $request->rohamnev,
+            "isActive" => $request->isActive,
+        ]);
+
+        $trooper->save(); */
     }
 
     /**

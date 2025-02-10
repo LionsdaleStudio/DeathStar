@@ -8,4 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/getMyData', [ApiStormtrooperController::class, 'index']);
+Route::get('/getMyData', [ApiStormtrooperController::class, 'store']);

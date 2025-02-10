@@ -9,12 +9,25 @@
                     <p class="card-text">Who can aim.</p>
                     <form action="{{ route('stormtroopers.store') }}" method="POST">
                         @csrf
-                        <input type="text" name="name" placeholder="name">
+                        <input type="text" name="name" placeholder="name" value="{{old('name')}}">
                         <input type="text" name="isActive" placeholder="act">
                         <input type="text" name="recruited" placeholder="rec">
-                        <input type="number" name="age" placeholder="age">
+                        <input class="@error('age') form-control @enderror" type="number" @error('age') style="border-color: red" @enderror name="age" placeholder="age" value="{{old('age', 15)}}">
+                        @error('age') {{$message}} @enderror
                         <button>Add hozzá</button>
                     </form>
+
+                    <p>
+                        @if ($errors->any())
+                            <p>There are some errors:</p>
+                            <ul>
+                                @foreach ($errors->all() as $item)
+                                <li>{{$item}}</li>
+                                @endforeach
+
+                            </ul>
+                        @endif
+                    </p>
                 </div>
             </div>
         </div>

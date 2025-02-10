@@ -22,7 +22,15 @@ class StoreStormtrooperRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ["string", "max:255", "required"]
+            "name" => ['required', 'string', 'max:50'],
+            "age" => 'required|integer|min:18'
+        ];
+    }
+
+    public function messages() {
+        return [
+            'name.string' => 'A név legyen string típus',
+            'name.required' => 'A név megadása kötelező te pupák.'
         ];
     }
 }
