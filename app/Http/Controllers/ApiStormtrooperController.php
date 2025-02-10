@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stormtrooper;
-use App\Http\Requests\StoreStormtrooperRequest;
-use App\Http\Requests\UpdateStormtrooperRequest;
+use Illuminate\Http\Request;
 
-class StormtrooperController extends Controller
+class ApiStormtrooperController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class StormtrooperController extends Controller
     public function index()
     {
         $stormtroopers = Stormtrooper::all();
-        return view('stormtroopers.index', ['stormtroopers' => $stormtroopers]);
+        return response()->json($stormtroopers);
     }
 
     /**
@@ -22,15 +21,15 @@ class StormtrooperController extends Controller
      */
     public function create()
     {
-        return view('stormtroopers.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStormtrooperRequest $request)
+    public function store(Request $request)
     {
-        Stormtrooper::create($request->all());
+        //
     }
 
     /**
@@ -52,7 +51,7 @@ class StormtrooperController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateStormtrooperRequest $request, Stormtrooper $stormtrooper)
+    public function update(Request $request, Stormtrooper $stormtrooper)
     {
         //
     }
